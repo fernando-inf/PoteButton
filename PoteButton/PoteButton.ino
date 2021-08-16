@@ -37,7 +37,7 @@ void PoteButton()
 void setup() 
               {
                 //MIDI.begin(MIDI_CHANNEL_OMNI);//MIDI_CHANNEL_OMNI= Lee los mensajes de todos los Canales, si esta vacio solo lee el Canal 1 en MIDI IN.
-                //Serial.begin(115200); // Si conecta directo a MIDI sin serial: 31250
+                //Serial.begin(115200); // Si conecta directo a MIDI - sin puerto serial: 31250
                 pinMode(2, INPUT_PULLUP);//PIN DIGITAL D2 para Pulsador
                 for (int i = 3; i <= 6; i++){pinMode(i,OUTPUT);}//PINES DIGITALES para LEDs: D3 a D6
                 
