@@ -14,3 +14,7 @@ Para simulación:
 - En el código habilite las lineas con // al inicio para obtener una aplicación MIDI.
 
 <img src="https://raw.githubusercontent.com/fernando-inf/PoteButton/main/PoteButton/SIMULIDE_PoteButton.png" width="100%"></img> 
+
+fernando-inf@hotmail.com
+
+2021 @CopyLeft
