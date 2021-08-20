@@ -7,7 +7,7 @@
 //#include <MIDI.h>
 //MIDI_CREATE_DEFAULT_INSTANCE();
 
-float tiempo_inicial = 0;
+float tiempo_transcurrido = 0;//Inicia en 0
 int intervalo1 = 5;
 int intervalo2 = 500;        
 int Velocity = 0; //El valor inicial deberia obtenerse mediante MIDI Input (señal recibida del Software) al seleccionar un preset, en caso de aplicarlo se esa forma borrar "= 0".
@@ -16,22 +16,22 @@ const int VelocityMax = 3;
 
 void PoteButton() 
               {
-                  while (digitalRead (2)==LOW){ delay(50); tiempo_inicial = tiempo_inicial + 50;}
+                  while (digitalRead (2)==LOW){ delay(50); tiempo_transcurrido = tiempo_transcurrido + 50;}
                 
-                  if (tiempo_inicial >= intervalo2)
+                  if (tiempo_transcurrido >= intervalo2)
                             {
                               Velocity--; if (Velocity < 0) Velocity = VelocityMax;
                               //MIDI.sendControlChange(51, Velocity, Ch); //(CC, Valor, Canal)
                               for (int i = 0; i <= 3; i++) {if (Velocity == i) {digitalWrite(i+3, HIGH);}  else {digitalWrite(i+3, LOW);}}
       
                             } 
-                  else if(tiempo_inicial >= intervalo1)
+                  else if(tiempo_transcurrido >= intervalo1)
                             {
                               Velocity++; if (Velocity > VelocityMax) Velocity = 0;
                               //MIDI.sendControlChange(51, Velocity, Ch);//(CC, Valor, Canal)
                               for (int i = 0; i <= 3; i++) {if (Velocity == i) {digitalWrite(i+3, HIGH);}  else {digitalWrite(i+3, LOW);}}
                             }      
-                tiempo_inicial = 0;
+                  tiempo_transcurrido = 0; //Reinicia el tiempo transcurrido a 0
               }
 
 void setup() 
